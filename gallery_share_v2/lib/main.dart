@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gallery_share_v2/group_page.dart';
+import 'package:gallery_share_v2/assets/colors.dart';
 
 void main() => runApp(MyApp());
 
@@ -7,7 +9,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Startup Name Generator',
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: ThemeData(primarySwatch: primaryBlack),
       home: LogInPage(title: 'Flutter Login'),
     );
   }
@@ -32,7 +34,7 @@ class _LogInPageState extends State<LogInPage> {
       style: style,
       decoration: InputDecoration(
           contentPadding: EdgeInsets.fromLTRB(15.0, 15.0, 15.0, 15.0),
-          hintText: "Email",
+          hintText: "Username",
           border:
               OutlineInputBorder(borderRadius: BorderRadius.circular(12.0))),
     );
@@ -52,7 +54,10 @@ class _LogInPageState extends State<LogInPage> {
       child: MaterialButton(
         minWidth: MediaQuery.of(context).size.width,
         padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => GroupPage()));
+        },
         child: Text("Login",
             textAlign: TextAlign.center,
             style: style.copyWith(
